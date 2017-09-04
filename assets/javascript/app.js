@@ -22,9 +22,9 @@ $(document).ready(function(){
     });
 	};
 
-	$("#weatherSearch").on("click", function(){ 
-		var city = $("#city").val().trim();
-		getAjax("http://api.openweathermap.org" + "/data/2.5/weather" + "?q=" + city + "&appid=8f1e1fe8ad21fd905884311228d4b797")
+	$("#trailSearch").on("click", function(){ 
+		var city = $("#locationInput").val().trim();
+		console.log(getAjax("http://api.openweathermap.org" + "/data/2.5/weather" + "?q=" + city + "&appid=8f1e1fe8ad21fd905884311228d4b797"))
 	})
 
 

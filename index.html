@@ -1,47 +1,72 @@
 <!DOCTYPE html>
 <html>
-
 <head>
+    <title>Waterfall Hunters: Project 1 </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="assets/css/reset.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
-    <title>Waterfall Hunter</title>
+    <!-- Latest compiled and minified Bootstrap CSS & JS Libraries -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+     <link href="assets/css/style.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
+    </script>
 </head>
+<body>
+    
 
-<body style="padding-top: 70px">
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
-            <div class="navbar-brand">
-                Insert Your City!
-            </div>
-            <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                    <input type="text" id="city" class="form-control" placeholder="City, State">
-                </div>
-                <button type="button" id="weatherSearch" class="btn btn-default">
-                    <span class="glyphicon glyphicon-search"></span> Search
-                </button>
-            </form>
-        </div>
-    </nav>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div id="put-map-here">
-                </div>
-                <h3>Map</h3>
-            </div>
-            <div class="col-md-6">
-                <div id="put-weather-here">
-                </div>
-                <h3>Weather</h3>
-            </div>
-        </div>
+    <!--Title header-->
+    <div class="jumbotron display-3 text-center bg-success text-white">
+        <h1 class="display-3">Waterfall Hunters</h1>
+        <p class="lead">Find trails on the go wherever you are!</p>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="assets/javascript/app.js"></script>
-</body>
 
+    <!--user input form to search a location -->
+    <div class="container">
+        <nav class="navbar navbar-light bg-light">
+            <form class="form-inline">
+                <input id= "locationInput" class="form-control mr-sm-2" type="text" placeholder="City, State, Zip Code" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" id="trailSearch" type="button">Find my trail!</button>
+            </form>
+        </nav>
+    </div>
+
+<!--optional checkboxes for the users to modify their search 
+<div class="checkbox">
+  <label><input type="checkbox" value="">Option 1</label>
+</div>
+<div class="checkbox">
+  <label><input type="checkbox" value="">Option 2</label>
+</div>
+<div class="checkbox disabled">
+  <label><input type="checkbox" value="" disabled>Option 3</label>
+</div> -->
+
+<div id="mapWeatherDivs" class="row">
+    <div id="googleMaps" class="col-xs-6 text-center">
+        <p>INSERT GOOGLE MAPS HERE</p>
+    </div>
+    <div id="weatherInfo" class="col-xs-6 text-center">
+        <P>INSERT WEATHER INFORMATION HERE</P>
+    </div>
+</div>
+
+<!-- APPENDED TRAILS PANEL -->
+        <div class="panel panel-default">
+            <div class="panel-heading text-center"><b>APPENDED TRAILS</b> </div>
+            <div class="panel-body">   
+            
+            <!-- OPTIONAL TABLE FOR TRAIL PANEL
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody> 
+                    </tbody>
+                </table> -->
+            </div>
+        </div>
+<script type="text/javascript" src="assets/javascript/app.js"></script>
+</body>
 </html>

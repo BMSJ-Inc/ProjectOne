@@ -1,4 +1,10 @@
-.jumbotron {
-    background-size: 100%;
-    width: 100%
+.navbar {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+		}
+
+#mapWeatherDivs {
+	height: 150px;
+margin-top: 60px;
 }
