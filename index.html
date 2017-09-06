@@ -24,9 +24,13 @@
         <nav class="navbar navbar-light bg-light">
             <form class="form-inline">
                 <input id= "locationInput" class="form-control mr-sm-2" type="text" placeholder="City, State, Zip Code" aria-label="Search">
+                <input id= "radius" class="form-control mr-sm-2" type="text" placeholder="Radius (miles)" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" id="trailSearch" type="button">Find my trail!</button>
             </form>
         </nav>
+        <div id="noResultsError" style="display: none;" class="alert text-center alert-danger">
+            <strong>No results returned. Please try another City, State and/or zip code</strong>
+        </div>
     </div>
 
 <!--optional checkboxes for the users to modify their search 
@@ -44,16 +48,19 @@
     <div id="googleMaps" class="col-xs-6 text-center">
         <p>INSERT GOOGLE MAPS HERE</p>
     </div>
-    <div id="weatherInfo" class="col-xs-6 text-center">
+<!--     Add Error Message Here If API Call Unsuccessful ᗺ==> "Failure to retrieve maps for trails"
+ -->    <div id="weatherInfo" class="col-xs-6 text-center">
         <P>INSERT WEATHER INFORMATION HERE</P>
     </div>
+    <!-- Add Error Message Here If API Call Unsuccessful ᗺ==> "Failure to retrieve weather for specified location" -->
 </div>
 
 <!-- APPENDED TRAILS PANEL -->
         <div class="panel panel-default">
             <div class="panel-heading text-center"><b>APPENDED TRAILS</b> </div>
             <div class="panel-body">   
-            
+<!--             Add Error Message Here For No Trail Results From API ᗺ==> "No trails found. Please try another location and/or increase the radius."
+ -->            
             <!-- OPTIONAL TABLE FOR TRAIL PANEL
                 <table class="table">
                     <thead>
