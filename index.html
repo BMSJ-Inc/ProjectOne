@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>Waterfall Hunters: Project 1 </title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="utf-8">
     <!-- Latest compiled and minified Bootstrap CSS & JS Libraries -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
      <link href="assets/css/style.css" rel="stylesheet" />
@@ -31,6 +32,9 @@
         <div id="noResultsError" style="display: none;" class="alert text-center alert-danger">
             <strong>No results returned. Please try another City, State and/or zip code</strong>
         </div>
+        <div id="radiusTooHighError" style="display: none;" class="alert text-center alert-danger">
+            <strong>Radius too high. Please search 1000 or less miles.</strong>
+        </div>
     </div>
 
 <!--optional checkboxes for the users to modify their search 
@@ -45,7 +49,7 @@
 </div> -->
 
 <div id="mapWeatherDivs" class="row">
-    <div id="googleMaps" class="col-xs-6 text-center">
+    <div id="map" class="col-xs-6 text-center">
         <p>INSERT GOOGLE MAPS HERE</p>
     </div>
 <!--     Add Error Message Here If API Call Unsuccessful ᗺ==> "Failure to retrieve maps for trails"
@@ -74,6 +78,11 @@
                 </table> -->
             </div>
         </div>
+        <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBOglb0LjVuwKiFDQz52dk_MSTfMJvbq5g&callback=initMap">
+    </script>
 <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 </html>
