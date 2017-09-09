@@ -1,14 +1,113 @@
+/*Initial CSS for entire page*/
+html, body {
+	/*background: url("../images/ep_naturalwhite.png") no-repeat center center fixed;*/
+	-webkit-background-size: cover;
+	   -moz-background-size: cover;
+	     -o-background-size: cover;
+	        background-size: cover;
+	background-color: transparent;
+	height: 100%;
+}
+
+.container {
+	min-height: 100%;
+	/*height: auto;*/
+	overflow: auto;
+	margin: 0 auto;
+	padding-bottom: 72px;
+}
+
+/*Header and Footer*/
 .navbar {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-		}
+}
 
+#pageTitle {
+	font-size: 80pt;
+	font-weight: 700;
+}
+
+#footer {
+	position: relative;
+	margin-top: -72px;
+	height: 72px;
+	clear: both;
+	padding-top: both;
+	background-color: transparent;
+}
+
+#alignFooterText {
+	position: absolute;
+	bottom: 0;
+	left: 40%;
+	text-align: center;
+}
+
+/*Div Content*/
 #mapWeatherDivs {
-	height: 150px;
-	margin-top: 60px;
+	height: 250px;
 }
 
 #map {
     height: 100%;
+    margin-bottom: 2rem;
+}
+
+#weatherInfo {
+	margin-bottom: 2rem;
+}
+
+/*Class for Bitter Font*/
+.bitterText {
+	font-family: 'Bitter', serif;
+}
+
+/*Style controls for Bootstrap's default forms/panels/buttons*/
+.form-control, .panel, .btn {
+     -webkit-border-radius: 0;
+        -moz-border-radius: 0;
+             border-radius: 0;
+background-color: transparent;
+}
+
+.btn {
+	color: black;
+}
+
+/*Media Queries*/
+@media screen and (min-width: 992px) {
+	body {
+		overflow-y: hidden;
+	}
+}
+
+@media screen and (min-width: 769px) {
+	.panel {
+		height: 400px;
+		overflow: scroll;
+		overflow-x: hidden;
+	}
+	#weatherInfo {
+		line-height: 10pt;
+		height: 220px;
+	}
+	.container {
+		padding-bottom: 0;
+	}
+	#footer {
+		margin-top: -36px;
+		height: 36px;
+		position: fixed;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	#pageTitle {
+		font-size: 56px;
+	}
+	.form-control {
+		width: 100%;
+	}
 }
