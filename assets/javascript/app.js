@@ -26,10 +26,20 @@ $(document).ready(function () {
             url: "https://www.hikingproject.com" + "/data/get-trails" + "?lat=" + searchCoordinates.lat + "&lon=" + searchCoordinates.lng + "&maxDistance=" + radius + "&key=200147703-07bf8d789bb5f945f6246689684605c2",
             method: "GET",
             success: function (data) {
+                $("#trails-info").html("");
                 for (i = 0; i < data.trails.length; i++) {
                     $("#trails-info").append("<h3>" + data.trails[i].name + "</h3>");
+                    $("#trails-info").append("<h4>" + data.trails[i].location + "</h4>");
                     $("#trails-info").append("<p>" + data.trails[i].summary + "</p>");
-                    $("#trails-info").append("<strong>Difficulty Level: " + data.trails[i].difficulty + "</strong>");
+                    $("#trails-info").append("<strong>Difficulty Level: " + data.trails[i].difficulty + " | " + "Length: " + data.trails[i].length + " mi.</strong>");
+                    $("#trails-info").append("<h5>Rating: " + data.trails[i].stars + "/5</h5>");
+                    // Retrieving the URL for the image
+                    var imgURL = data.trails[i].imgSmall;
+                    // Creating an element to hold the image
+                    var image = $("<img>").attr("src", imgURL);
+                    // Appending the image
+                    $("#trails-info").append(image);
+        
                     //TODO: Also append location info or more general trail data if possible           
                     window.locations.push({ lat: data.trails[i].latitude, lng: data.trails[i].longitude });
                 }
@@ -53,6 +63,7 @@ $(document).ready(function () {
                 $("#weatherTemp").html("Temperature: " + tempF + "&#176; F");
                 $("#weatherHumidity").html("Humidity: " + data.main.humidity + "%");
                 $("#weatherDescription").html("Forecast: " + data.weather[0].description);
+                $("#weatherIcon").attr("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
                 getTrailsData();
             },
             fail: function (data) {

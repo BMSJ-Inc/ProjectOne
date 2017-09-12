@@ -9,6 +9,21 @@ html, body {
 	height: 100%;
 }
 
+#header-background {
+	margin-top: -20px;
+	background: url('../images/forest.jpg') no-repeat center center fixed;
+}
+
+#header {
+	background-color: rgba(0,0,0,0.6);
+	padding-top: 10px;
+	padding-bottom: 6px;
+	margin-bottom: 16px;
+}
+
+.tagline {
+	color: #fff;
+}
 .container {
 	min-height: 100%;
 	/*height: auto;*/
@@ -25,8 +40,9 @@ html, body {
 }
 
 #pageTitle {
-	font-size: 80pt;
+	font-size: 60pt;
 	font-weight: 700;
+	color: #fff;
 }
 
 #footer {
