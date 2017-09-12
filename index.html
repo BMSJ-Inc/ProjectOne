@@ -7,22 +7,18 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Bitter:700" rel="stylesheet">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/faviconx64.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
     <title>Trail Hunters</title>    
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous">
     </script>
 </head>
-
 <body>
-    
     <div class="container">
-
         <div class="text-center">
             <h1 class="bitterText" id="pageTitle"><b>Trail Hunters</b></h1>
             <p class="lead bitterText">Find trails on the go, wherever you are!</p>
         </div>
-
         <nav class="navbar navbar-light bg-light">
             <form class="form-inline">
                 <input id= "locationInput" class="form-control mr-sm-2" type="text" placeholder="City, State, Zip Code" aria-label="Search">
@@ -36,9 +32,7 @@
         <div id="radiusTooHighError" style="display: none;" class="alert text-center alert-danger">
             <strong>Radius too high. Please search 1000 or less miles.</strong>
         </div>
-
         <div class="row">
-            
             <div class="col-xs-12 col-md-6">
                 <div id="mapWeatherDivs" class="row">            
                     <div id="map" class="col-xs-12 col-md-12 text-center pull-left">
@@ -53,73 +47,58 @@
                     </div>
                 </div>
             </div>
-
             <div class="panel panel-default col-xs-12 col-md-6 pull-right bitterText">
                 <div class="panel-heading text-center "><b>TRAILS NEAR YOU</b></div>
                 <div class="panel-body">
                     <div id="trails-info"></div>
                 </div>
             </div>
-
         </div>
-
-        
-
     </div>
-
     <div id="footer" class="footer navbar-fixed-bottom bitterText">
       <div class="container text-center">
         <p id="alignFooterText">Copyright &#169; 2017 | BMSJ-Inc</p>
       </div>
     </div>
 
-   <script>
-      function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
+<script>
+
+    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    var locations = [];
+    var searchCoordinates = { lat: 41.4993, lng: -81.6944 };;
+
+    function initMap() {
+        var uluru = searchCoordinates;
+        var map = new google.maps.Map(document.getElementById('map'),
+            {
+                zoom: 4,
+                center: uluru
+            });
         var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
+            position: uluru,
+            map: map
         });
-      }
-    </script>
-    <script>
-      function initMap() {
-        var uluru = {lat: 41.4993, lng: -81.6944};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-      });
-         var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-              // Add some markers to the map.
+
+        // Add some markers to the map.
         // Note: The code uses the JavaScript Array.prototype.map() method to
         // create an array of markers based on a given "locations" array.
         // The map() method here has nothing to do with the Google Maps API.
         var markers = locations.map(function(location, i) {
-          return new google.maps.Marker({
-            position: location,
-            label: labels[i % labels.length]
-          });
+            return new google.maps.Marker({
+                position: location,
+                label: labels[i % labels.length]
+            });
         });
 
         // Add a marker clusterer to manage the markers.
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-      
-      var locations = [];
-      function mapData(data) {
-        for (i = 0; i < data.trails[i].length; i++) {
-            locations.push(latitude, longitude);
-             console.log(locations);
-       };
-      }
-    </script>
+        var markerCluster = new MarkerClusterer(map,
+            markers,
+            { imagePath: "assets/images/m" });
+    }
+</script>
 
-    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-    </script>
+<script src="assets/javascript/MarkerClusterer.js"></script>
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1xuQdW9H5SBfN8XjZtAJKifKs30YBIqk&callback=initMap">
     </script> 
