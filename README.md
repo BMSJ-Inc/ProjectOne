@@ -1,3 +1,3 @@
 # ProjectOne
 
-This is a forthcoming web-app that you will be able to use to search for trailheads in an area and the weather of that local.
+This is a web-app that you can to use to search for trailheads in any U.S. area and simulatneously view the local weather and Google Maps location!
