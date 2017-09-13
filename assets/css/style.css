@@ -25,8 +25,8 @@ html, body {
 	color: #fff;
 }
 .container {
-	min-height: 100%;
-	/*height: auto;*/
+	/*min-height: 100%;*/
+	height: auto;
 	overflow: auto;
 	margin: 0 auto;
 	padding-bottom: 72px;
@@ -95,27 +95,19 @@ background-color: transparent;
 /*Media Queries*/
 @media screen and (min-width: 992px) {
 	body {
-		overflow-y: hidden;
+		/*overflow-y: hidden;*/
 	}
-}
-
-@media screen and (min-width: 769px) {
 	.panel {
 		height: 400px;
 		overflow: scroll;
 		overflow-x: hidden;
 	}
+}
+
+@media screen and (min-width: 769px) {
 	#weatherInfo {
 		line-height: 10pt;
-		height: 220px;
-	}
-	.container {
-		padding-bottom: 0;
-	}
-	#footer {
-		margin-top: -36px;
-		height: 36px;
-		position: fixed;
+		height: 120px;
 	}
 }
 
