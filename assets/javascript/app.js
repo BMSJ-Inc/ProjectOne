@@ -1,5 +1,3 @@
-var locations = [];
-
 $(document).ready(function () {
 
     //Global variables
