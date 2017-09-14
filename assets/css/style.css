@@ -1,6 +1,5 @@
 /*Initial CSS for entire page*/
 html, body {
-	/*background: url("../images/ep_naturalwhite.png") no-repeat center center fixed;*/
 	-webkit-background-size: cover;
 	   -moz-background-size: cover;
 	     -o-background-size: cover;
@@ -25,7 +24,6 @@ html, body {
 	color: #fff;
 }
 .container {
-	/*min-height: 100%;*/
 	height: auto;
 	overflow: auto;
 	margin: 0 auto;
@@ -95,7 +93,6 @@ background-color: transparent;
 /*Media Queries*/
 @media screen and (min-width: 992px) {
 	body {
-		/*overflow-y: hidden;*/
 	}
 	.panel {
 		height: 400px;

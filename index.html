@@ -25,15 +25,11 @@
         <nav class="navbar navbar-light bg-light">
             <form class="form-inline">
                 <input id= "locationInput" class="form-control mr-sm-2" type="text" placeholder="City, State, Zip Code" aria-label="Search">
-                <input id= "radius" class="form-control mr-sm-2" type="text" placeholder="Radius (miles)" aria-label="Search">
+                <input id= "radius" class="form-control mr-sm-2" type="number" min="0" placeholder="Radius (miles)" aria-label="Search">
                 <button class="btn btn-outline-success btn-success my-2 my-sm-0" id="trailSearch" type="button">Find my trail!</button>
             </form>
         </nav>
-        <div id="noResultsError" style="display: none;" class="alert text-center alert-danger">
-            <strong>No results returned. Please try another City, State and/or zip code</strong>
-        </div>
-        <div id="radiusTooHighError" style="display: none;" class="alert text-center alert-danger">
-            <strong>Radius too high. Please search 1000 or less miles.</strong>
+        <div id="errorMessage" style="display: none;" class="alert text-center alert-danger">
         </div>
         <div class="row">
             <div class="col-xs-12 col-md-6">
@@ -67,18 +63,17 @@
 <script>
 
     var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var locations = [];
-    var searchCoordinates = { lat: 41.4993, lng: -81.6944 };;
+    var locations;
+    var searchCoordinates = { lat: 41.4993, lng: -81.6944 };
 
     function initMap() {
-        var uluru = searchCoordinates;
         var map = new google.maps.Map(document.getElementById('map'),
             {
                 zoom: 4,
-                center: uluru
+                center: searchCoordinates
             });
         var marker = new google.maps.Marker({
-            position: uluru,
+            position: searchCoordinates,
             map: map
         });
 
