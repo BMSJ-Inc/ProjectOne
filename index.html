@@ -25,7 +25,7 @@
         <nav class="navbar navbar-light bg-light">
             <form class="form-inline">
                 <input id= "locationInput" class="form-control mr-sm-2" type="text" placeholder="City, State, Zip Code" aria-label="Search">
-                <input id= "radius" class="form-control mr-sm-2" type="number" min="0" placeholder="Radius (miles)" aria-label="Search">
+                <input id= "radius" class="form-control mr-sm-2" type="text" placeholder="Radius (miles)" aria-label="Search">
                 <button class="btn btn-outline-success btn-success my-2 my-sm-0" id="trailSearch" type="button">Find my trail!</button>
             </form>
         </nav>
@@ -63,35 +63,45 @@
 <script>
 
     var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var locations;
-    var searchCoordinates = { lat: 41.4993, lng: -81.6944 };
+    var locations = [];
+    var searchCoordinates = { lat: 41.4993, lng: -81.6944 };;
 
     function initMap() {
+        var uluru = searchCoordinates;
         var map = new google.maps.Map(document.getElementById('map'),
             {
-                zoom: 4,
-                center: searchCoordinates
+                zoom: 9,
+                center: uluru
             });
+            
+
         var marker = new google.maps.Marker({
-            position: searchCoordinates,
+            position: uluru,
             map: map
         });
 
-        // Add some markers to the map.
-        // Note: The code uses the JavaScript Array.prototype.map() method to
-        // create an array of markers based on a given "locations" array.
-        // The map() method here has nothing to do with the Google Maps API.
-        var markers = locations.map(function(location, i) {
-            return new google.maps.Marker({
-                position: location,
-                label: labels[i % labels.length]
-            });
-        });
+        var contentString = locations;
 
-        // Add a marker clusterer to manage the markers.
-        var markerCluster = new MarkerClusterer(map,
-            markers,
-            { imagePath: "assets/images/m" });
+        var infowindow = new google.maps.InfoWindow({
+          content: contentString
+        });
+        
+        for (var i = 0; i < locations.length; i++) {
+                var data = locations[i];
+                var myLatLng = new google.maps.LatLng(data.lat, data.lng)
+                var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: labels[i % labels.length] });
+        
+          google.maps.event.addListener(marker, 'click', (function (marker, data) {
+                return function () {
+                    infowindow.setContent("<h4>" + data.name + "</h4>");
+                    infowindow.open(map, marker);
+                }
+            })(marker, data)); 
+        
+        }
     }
 </script>
 
